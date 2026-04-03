@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>FlexBox Nav</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="js.js"></script>
+</head>
+<body>
+
+    //ось це
+
+	<div class="theme dark">Dark theme</div>// ось це
+
+    // ось це
+
+    <div class="wrapper">
+
+        <header class="top">
+            <h1><a href="#">Site them. Me</a></h1>
+        </header>   
+
+    <nav class="flex-nav">
+        <a href="#" class="toggleNav">☰ Menu</a>
+        <ul>
+        <li><a href="#">Item 01</a></li>
+         <li><a href="#">Item 02</a></li>
+         <li><a href="#">Item 03</a></li>
+         <li><a href="#">Item 04</a></li>
+         <li><a href="#">Item 05</a></li>
+         <li><a href="#">Item 06</a></li>
+         <li class="social">
+           <a href="#"><i class="fa fa-twitter"></i></a>
+       </li>
+       <li class="social">
+           <a href="#"><i class="fa fa-facebook"></i></a>
+       </li>
+       <li class="social">
+           <a href="#"><i class="fa fa-github"></i></a>
+       </li>
+       <li class="social">
+           <a href="#"><i class="fa fa-instagram"></i></a>
+       </li>
+   </ul>
+</nav>
+
+<section class="banner">
+   <img src="http://lorempixel.com/1000/600/abstract">
+</section>
+
+<section class="content">
+   <p>Here could be your advertisement!</p>
+   <p>Ihre Werbung kann hier sein!</p>
+   <p>您的廣告可能在這裡！</p>
+</section>
+
+<section class="signup">
+   <form action="" class="signup">
+     <input type="text" placeholder="Your Name">
+     <input type="email" placeholder="Email Address">
+     <input type="submit" value="Sign me up!">
+ </form>
+</section>
+
+<footer>
+   <p>&copy; Site creator</p>
+</footer>
+
+</div>
+
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+</script>
+<script>
+	$(function() {
+     $('.toggleNav').on('click',function() {
+       $('.flex-nav ul').toggleClass('open');
+   });
+ });
+
+</script>
+</body>
+</html>
