@@ -1,0 +1,23 @@
+.container {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+}
+
+#hour_style {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#minute_style {
+    position: absolute;
+    left: 60px;
+    top: 60px;
+}
+
+#seconds_style {
+    position: absolute;
+    left: 110px;
+    top: 110px;
+}
