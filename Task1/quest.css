@@ -1,0 +1,175 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: sans-serif;
+	background: #fcf9f5;
+	letter-spacing: 1px;
+}
+
+.wrapper {
+	max-width: 50vw;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px 0;
+}
+
+h1 {
+	font-size: 65px;
+}
+
+.wrapper > h2 {
+	font-size: 45px;
+	margin: 20px 0;
+}
+
+article {
+	color: white;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 50px;
+}
+
+/* --- ОПТИМІЗАЦІЯ: СПІЛЬНІ КЛАСИ ДЛЯ КВЕСТІВ --- */
+
+/* Контейнери квестів */
+.task-section {
+	width: 100%;
+	max-width: 50vw;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px 0;
+}
+
+/* Кнопка розгортання правил */
+.rules-trigger {
+	font-size: 30px;
+	padding: 10px 20px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	color: white;
+	cursor: pointer;
+}
+
+/* Контент правил */
+.rules-content {
+	padding: 20px;
+	font-size: 25px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	color: black;
+	display: none;
+}
+
+/* Блоки з колами прогресу (фіксовані зліва) */
+.progress-container {
+	position: fixed;
+	left: 1vw;
+	padding: 2.5vh;
+}
+
+.progress-container p {
+	text-align: center;
+	font-size: 40px;
+	margin-bottom: 10px;
+}
+
+/* Позиціонування віджетів Knob */
+.position-time { top: 1vh; }
+.position-t1 { top: 40vh; }
+.position-t2 { top: 45vh; }
+
+/* Області для введення відповідей */
+.answer-block {
+	width: 65%;
+	padding: 20px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+}
+
+/* Інпути */
+.input-text {
+	flex-grow: 1;
+	font-size: 35px;
+	padding: 10px;
+	background: rgba(0, 0, 0, 0);
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.input-text:focus {
+	outline: none;
+}
+
+/* Кнопки перевірки відповідей */
+.btn-submit {
+	flex-grow: 1;
+	font-size: 30px;
+	color: white;
+	border: none;
+	border-bottom: 1px solid black;
+	cursor: pointer;
+}
+
+/* Великі фіксовані кнопки (Start та Next Task) */
+.action-btn {
+	width: 250px;
+	height: 10vh;
+	font-size: 40px;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+#nextTask {
+	position: fixed;
+	right: 2vw;
+	bottom: 45vh;
+	display: none;
+}
+
+/* Медіа-контент */
+.img, .sound {
+	width: 65%;
+}
+
+.img img {
+	box-shadow: 0 0 20px black;
+	width: 100%;
+}
+
+.sound {
+	text-align: center;
+	margin-bottom: 30px;
+	display: none;
+}
+
+audio {
+	outline: none;
+}
+
+canvas {
+	width: 20vw;
+}
+
+/* --- ОПТИМІЗАЦІЯ: ТОЧКОВІ КОЛЬОРОВІ ТЕМИ --- */
+
+/* Червона тема (Task 1) */
+.red-theme { background: #991525; }
+.red-content { background: #cde8ea; }
+.btn-red { background: #991525; }
+
+/* Фіолетова тема (Task 2) */
+.purple-theme { background: #3b1b5b; }
+.purple-content { background: #cecae3; }
+.btn-purple { background: #3b1b5b; }
