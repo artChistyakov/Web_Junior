@@ -16,9 +16,13 @@ let num = Math.floor(1 + Math.random() * 12);
 
 // ПОЧАТОК НОВОГО КОДУ 1/4 (JS СТРУКТУРИ ДЛЯ ДРУГОГО КВЕСТУ)
 
-
 let timeStorage = localStorage;
 let timeSound;
+
+// ТУТ БУВ БАГ: Відсутність глобальної змінної для збереження ідентифікатора інтервалу.
+// Через це було неможливо зупинити фонову роботу таймера після проходження квесту.
+// ВИПРАВЛЕННЯ: Додано глобальну змінну timerInterval для керування роботою setInterval.
+let timerInterval; 
 
 if (timeStorage.getItem("time") != null) {
 	timeSound = parseInt(timeStorage.getItem("time"));
@@ -194,6 +198,12 @@ $(document).ready(function () {
 				startSound(numSound);
 			} else {
 				// Квест завершено, ховаємо елементи гри та показуємо перехід до Task 3
+                
+				// ТУТ БУВ БАГ: Таймер продовжував працювати у фоні навіть після успішного завершення Music Quiz.
+				// Якщо користувач не натискав кнопку переходу миттєво, таймер усе одно доходив до 0 і перезавантажував сторінку.
+				// ВИПРАВЛЕННЯ: Додано примусове очищення інтервалу за допомогою clearInterval(timerInterval).
+				clearInterval(timerInterval); 
+                
 				$(".sound, #btnTask2, #inputTask2, .timeProgress, .taskProgressSound").css({
 					'display' : 'none'
 				});
@@ -222,10 +232,18 @@ function startSound (arg) {
 }
 
 function startTimeSound () {
-	setInterval(function () {
+	// ТУТ БУВ БАГ: Створення інтервалу без збереження його посилання.
+	// Через це інтервал неможливо було зупинити з інших частин програми.
+	// ВИПРАВЛЕННЯ: Результат setInterval збережено у раніше створену змінну timerInterval.
+	timerInterval = setInterval(function () {
 		timeSound = parseInt(localStorage.getItem("time")) - 1;
 		$(".time").val(timeSound).trigger('change');
-		if (timeSound == 0) {
+		if (timeSound <= 0) {
+			// ТУТ БУВ БАГ: Відсутність зупинки інтервалу у разі вичерпання ліміту часу.
+			// Таймер продовжував рахувати час у мінусові значення.
+			// ВИПРАВЛЕННЯ: Додано clearInterval(timerInterval) перед перезавантаженням.
+			clearInterval(timerInterval); 
+            
 			alertify.error("Time is out!");
 			// У разі закінчення часу перезавантажуємо поточну сторінку, щоб користувач міг почати квест знову
 			setTimeout(() => window.location.reload(), 2000);
